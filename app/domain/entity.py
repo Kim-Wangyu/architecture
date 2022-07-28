@@ -3,10 +3,15 @@ from msilib.schema import Class
 
 
 @dataclass
-class User:
+class Domain:
+    ...
+
+
+@dataclass
+class User(Domain):
     name: str
 
 
 @dataclass
-class Product:
+class Product(Domain):
     name: str
