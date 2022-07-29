@@ -6,7 +6,7 @@ from app.domain.entity import User
 
 
 class FakeUserRepository(AbstractRepository):
-    def __init__(self, users=[]) -> None:
+    def __init__(self, users=[]) -> None:  # users를 내부적으로 빈 어레이를 주면 리스트가 내부적으로 캐시되는 효과기 있음
         self.users = users
 
     def create(self, model: User):

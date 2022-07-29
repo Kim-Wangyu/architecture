@@ -19,7 +19,7 @@ from tests.fakes import FakeUserRepository
 # 실행을 시켜서 미리 공통으로 사용되는것들을 묶어놓음
 @pytest.fixture
 def user_service():
-    repository = FakeUserRepository()
+    repository = FakeUserRepository(users=[])  # 여기 빈 리스트를 넣음으로써 독립적인 레포지토리를 얻을 수 있음
 
     user_service = UserService(repository=repository)
     return user_service

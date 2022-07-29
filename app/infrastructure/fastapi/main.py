@@ -13,7 +13,7 @@ from app.infrastructure.database.orm import UserModel, db
 def create_app(initialize_db=False):
     app = FastAPI()
     app.add_api_route(path="/user", methods=["POST"], endpoint=signup)
-    app.add_api_route(path="/products", methods=["GET"], endpoint=find_product)
+    app.add_api_route(path="/products/{product_id}", methods=["GET"], endpoint=find_product)
     if initialize_db:
         init_db()
     return app
