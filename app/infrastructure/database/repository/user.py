@@ -8,3 +8,10 @@ class UserRepository(AbstractRepository):
         UserModel.create(name=model.name)
         return model  # create를 했을때 특정한 객체를 반환은안해서 일단 인풋을 아웃풋으로 쏨 , 실제로 프로덕션환경이나 복잡한 코드에서는 이렇게 쓰면안됨
         # validation하는 파일도 있어야함
+
+    def find_one(self, model: User):
+        user = UserModel.select().where(UserModel.name == model.name).first()
+
+        if not user:
+            return None
+        return User(name=user.name)

@@ -7,3 +7,7 @@ class AbstractRepository(abc.ABC):
     @abc.abstractmethod
     def create(self, model: Domain):  # 그러면 여기서 model: 유저든 프로덕트든 도메인을 상속받기 때문에 도메인을 가져오면 됨
         ...
+
+    @abc.abstractmethod
+    def find_one(self, model: Domain):
+        ...
