@@ -1,6 +1,13 @@
+from app.application.interface.repository import AbstractRepository
 from app.domain.entity import Product
 
 
-def create_product(product_name=str):
-    product = Product(name=product_name)
-    return product
+class ProductService:
+    def __init__(self, repository: AbstractRepository):
+        self.repository = repository
+
+    def get_product(self, product_id: int):
+        _product = Product(id=product_id)
+        product = self.repository.find_one(model=_product)
+
+        return product
