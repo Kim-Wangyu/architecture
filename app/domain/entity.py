@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from msilib.schema import Class
+from typing import Optional
 
 
 @dataclass
@@ -14,4 +14,6 @@ class User(Domain):
 
 @dataclass
 class Product(Domain):
-    name: str
+    id: Optional[int] = None
+    name: Optional[str] = None
+    price: Optional[int] = None
