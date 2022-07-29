@@ -3,7 +3,7 @@ from app.domain.entity import User
 
 
 class UserService:
-    def __init__(self, repository: AbstractRepository) -> None:
+    def __init__(self, repository: AbstractRepository) -> None:  # 외부프레임워크 의존
         self.repository = repository
 
     def create_user(self, user_name: str):  # 레포지 주입 받아서 사용가능

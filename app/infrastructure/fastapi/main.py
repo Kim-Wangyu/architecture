@@ -23,6 +23,8 @@ def create_pro():
 
 
 def init_db():
+    db.init(database="database.db")  # 이렇게 하면 orm 경로에는 None으로 한게
+    # fastapi 실행할때만 해당 함수가 실행되면서 구축이 된다.
     db.connect()
     UserModel.create_table()
 
